@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #F4F7FE; color: #0B1A2F; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    input::placeholder, textarea::placeholder { color: #9AAFC8; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(30,144,255,.45)} 100%{box-shadow:0 0 0 8px rgba(30,144,255,0)} }
+  </style>
+</helmet>
+
+<!-- ═══ NAV ═══ -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid #E3EAF8;box-shadow:0 1px 12px rgba(11,26,47,0.06);">
+  <div style="display:flex;align-items:center;gap:10px;flex:none;">
+    <div style="width:38px;height:38px;background:linear-gradient(135deg,#1E90FF,#00C6FF);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(30,144,255,.3);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="#fff" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#fff"/></svg>
+    </div>
+    <span style="font-size:18px;font-weight:700;letter-spacing:-.3px;color:#0B1A2F;">AirPro<span style="color:#1E90FF;">HVAC</span></span>
+  </div>
+  <div style="display:flex;gap:36px;align-items:center;">
+    <a href="#services" style="color:#4B6080;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#0B1A2F;">Services</a>
+    <a href="#about" style="color:#4B6080;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#0B1A2F;">About</a>
+    <a href="#process" style="color:#4B6080;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#0B1A2F;">How It Works</a>
+    <a href="#testimonials" style="color:#4B6080;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#0B1A2F;">Reviews</a>
+    <a href="#contact" style="color:#4B6080;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#0B1A2F;">Contact</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;flex:none;">
+    <a href="tel:+18005551234" style="display:flex;align-items:center;gap:7px;color:#4B6080;font-size:14px;font-weight:500;text-decoration:none;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012.39 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      1-800-555-1234
+    </a>
+    <a href="#contact" style="background:#1E90FF;color:#fff;font-size:14px;font-weight:600;padding:10px 22px;border-radius:8px;text-decoration:none;box-shadow:0 4px 14px rgba(30,144,255,.3);transition:background .2s,transform .2s;" style-hover="background:#1678d4;transform:translateY(-1px);">Get Free Quote</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section style="min-height:100vh;padding-top:72px;display:flex;align-items:center;background:linear-gradient(160deg,#FFFFFF 0%,#EEF5FF 60%,#E4EFFF 100%);position:relative;overflow:hidden;">
+  <!-- Decorative circles -->
+  <div style="position:absolute;top:-120px;right:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(30,144,255,.07) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-100px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,198,255,.05) 0%,transparent 70%);pointer-events:none;"></div>
+  <!-- Subtle dot grid -->
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(30,144,255,.08) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;"></div>
+
+  <div style="max-width:1280px;margin:0 auto;padding:80px 56px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;width:100%;position:relative;">
+    <!-- Left -->
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#EEF5FF;border:1px solid #C2D9FF;border-radius:100px;padding:6px 16px;margin-bottom:28px;">
+        <span style="width:7px;height:7px;background:#1E90FF;border-radius:50%;display:inline-block;animation:pulse-ring 1.8s ease infinite;"></span>
+        <span style="font-size:13px;font-weight:600;color:#1E90FF;letter-spacing:.4px;">Available 24/7 — Emergency Service</span>
+      </div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(44px,5vw,68px);line-height:1.06;letter-spacing:-2px;color:#0B1A2F;margin-bottom:24px;">
+        Expert Air<br/>
+        <span style="color:#1E90FF;">Conditioning</span> &amp;<br/>
+        Heating Services
+      </h1>
+      <p style="font-size:17px;line-height:1.75;color:#4B6080;max-width:480px;margin-bottom:40px;">
+        Fast, reliable HVAC solutions for homes and businesses. Licensed technicians, same-day service, and a comfort guarantee you can count on year-round.
+      </p>
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:48px;flex-wrap:wrap;">
+        <a href="#contact" style="background:#1E90FF;color:#fff;font-size:15px;font-weight:600;padding:15px 32px;border-radius:10px;text-decoration:none;display:flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(30,144,255,.3);transition:background .2s,transform .15s;" style-hover="background:#1678d4;transform:translateY(-2px);">
+          Book a Service
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="tel:+18005551234" style="display:flex;align-items:center;gap:10px;color:#0B1A2F;font-size:15px;font-weight:500;text-decoration:none;background:#fff;border:1.5px solid #D6E4F7;padding:15px 28px;border-radius:10px;box-shadow:0 2px 8px rgba(11,26,47,.06);transition:border-color .2s,box-shadow .2s;" style-hover="border-color:#1E90FF;box-shadow:0 4px 16px rgba(30,144,255,.12);">
+          <div style="width:32px;height:32px;background:#EEF5FF;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012.39 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z" stroke="#1E90FF" stroke-width="1.5"/></svg>
+          </div>
+          Call 1-800-555-1234
+        </a>
+      </div>
+      <div style="display:flex;gap:28px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;color:#4B6080;font-size:13px;font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#1E90FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#1E90FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Licensed &amp; Insured
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;color:#4B6080;font-size:13px;font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E90FF" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#1E90FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Same-Day Service
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;color:#4B6080;font-size:13px;font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#FBBF24" stroke-width="1.5" fill="#FBBF24" stroke-linecap="round"/></svg>
+          4.9★ Rated (500+ Reviews)
+        </div>
+      </div>
+    </div>
+
+    <!-- Right — Technician Photo -->
+    <div style="position:relative;padding-bottom:24px;">
+      <!-- Main photo card -->
+      <div style="border-radius:24px;overflow:hidden;box-shadow:0 24px 64px rgba(30,144,255,.15),0 4px 20px rgba(11,26,47,.1);animation:float 6s ease-in-out infinite;position:relative;aspect-ratio:3/4;">
+        <img src="uploads/pasted-1782064548147-0.png" alt="HVAC Technician" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center top;" />
+        <!-- Bottom gradient -->
+        <div style="position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(to top,rgba(11,26,47,.82),transparent);pointer-events:none;"></div>
+        <!-- Stats overlaid on photo -->
+        <div style="position:absolute;bottom:20px;left:16px;right:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <div style="background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-radius:12px;padding:10px;text-align:center;">
+            <div style="font-size:18px;font-weight:700;color:#1E90FF;font-family:'DM Serif Display',serif;">22°</div>
+            <div style="font-size:10px;color:#7A95B8;margin-top:1px;">Set Temp</div>
+          </div>
+          <div style="background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-radius:12px;padding:10px;text-align:center;">
+            <div style="font-size:18px;font-weight:700;color:#00AADD;font-family:'DM Serif Display',serif;">68%</div>
+            <div style="font-size:10px;color:#7A95B8;margin-top:1px;">Humidity</div>
+          </div>
+          <div style="background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-radius:12px;padding:10px;text-align:center;">
+            <div style="font-size:18px;font-weight:700;color:#16A362;font-family:'DM Serif Display',serif;">A+</div>
+            <div style="font-size:10px;color:#7A95B8;margin-top:1px;">Efficiency</div>
+          </div>
+        </div>
+        <!-- Badge top-left on photo -->
+        <div style="position:absolute;top:16px;left:16px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(11,26,47,.1);">
+          <div style="width:8px;height:8px;border-radius:50%;background:#16A362;box-shadow:0 0 0 3px rgba(22,163,98,.2);flex:none;"></div>
+          <span style="font-size:12px;font-weight:600;color:#0B1A2F;">On Call Now</span>
+        </div>
+      </div>
+      <!-- Floating badge — response time -->
+      <div style="position:absolute;top:28px;right:-20px;background:linear-gradient(135deg,#FF6B2B,#FF9A5C);border-radius:16px;padding:14px 20px;box-shadow:0 12px 32px rgba(255,107,43,.3);">
+        <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.5px;">Response Time</div>
+        <div style="font-size:22px;font-weight:700;color:#fff;margin-top:2px;">Under 1hr</div>
+      </div>
+      <!-- Floating badge — clients -->
+      <div style="position:absolute;bottom:10px;left:-20px;background:#fff;border:1.5px solid #D6E4F7;border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 24px rgba(11,26,47,.1);">
+        <div style="display:flex;">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=60&q=80" alt="" style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex:none;" />
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=60&q=80" alt="" style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex:none;margin-left:-8px;" />
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=60&q=80" alt="" style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex:none;margin-left:-8px;" />
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#0B1A2F;">500+ Happy Clients</div>
+          <div style="font-size:11px;color:#7A95B8;margin-top:1px;">This month alone</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS MARQUEE ═══ -->
+<div style="background:#fff;border-top:1px solid #E3EAF8;border-bottom:1px solid #E3EAF8;overflow:hidden;">
+  <div style="display:flex;animation:marquee 28s linear infinite;width:max-content;">
+    <div style="display:flex;flex:none;">
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#1E90FF;font-family:'DM Serif Display',serif;">15+</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Years Experience</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#00AADD;font-family:'DM Serif Display',serif;">8,500+</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Customers Served</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#16A362;font-family:'DM Serif Display',serif;">100%</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Satisfaction Rate</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#FF6B2B;font-family:'DM Serif Display',serif;">24/7</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Emergency Support</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#7C5CEA;font-family:'DM Serif Display',serif;">50+</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Certified Technicians</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#FBBF24;font-family:'DM Serif Display',serif;">4.9★</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Google Rating</span>
+      </div>
+    </div>
+    <div style="display:flex;flex:none;">
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#1E90FF;font-family:'DM Serif Display',serif;">15+</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Years Experience</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#00AADD;font-family:'DM Serif Display',serif;">8,500+</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Customers Served</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#16A362;font-family:'DM Serif Display',serif;">100%</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Satisfaction Rate</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#FF6B2B;font-family:'DM Serif Display',serif;">24/7</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Emergency Support</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#7C5CEA;font-family:'DM Serif Display',serif;">50+</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Certified Technicians</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E3EAF8;flex:none;white-space:nowrap;">
+        <span style="font-size:26px;font-weight:700;color:#FBBF24;font-family:'DM Serif Display',serif;">4.9★</span>
+        <span style="font-size:14px;color:#7A95B8;font-weight:500;">Google Rating</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services" style="padding:120px 56px;background:#F4F7FE;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:64px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#EEF5FF;border:1px solid #C2D9FF;border-radius:100px;padding:6px 18px;margin-bottom:18px;">
+        <span style="font-size:13px;font-weight:600;color:#1E90FF;letter-spacing:.5px;text-transform:uppercase;">Our Services</span>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(34px,4vw,52px);line-height:1.1;letter-spacing:-1px;color:#0B1A2F;margin-bottom:14px;">Complete HVAC Solutions<br/>For Every Need</h2>
+      <p style="font-size:16px;color:#4B6080;max-width:500px;margin:0 auto;line-height:1.7;">From routine maintenance to emergency repairs, our certified team handles everything with precision.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+      <!-- Card 1 -->
+      <div style="background:#fff;border:1.5px solid #E3EAF8;border-radius:20px;padding:30px;transition:border-color .25s,transform .25s,box-shadow .25s;" style-hover="border-color:#1E90FF;transform:translateY(-4px);box-shadow:0 12px 36px rgba(30,144,255,.1);">
+        <div style="width:52px;height:52px;background:#EEF5FF;border:1px solid #C2D9FF;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="#1E90FF" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="#1E90FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#0B1A2F;margin-bottom:10px;">AC Installation</h3>
+        <p style="font-size:14px;line-height:1.65;color:#4B6080;margin-bottom:20px;">Professional installation of all central AC, mini-splits, and ductless systems with optimal placement.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#1E90FF;font-size:13px;font-weight:600;">
+          <span>Learn More</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Card 2 — Featured -->
+      <div style="background:linear-gradient(145deg,#1469CC,#1E90FF);border:none;border-radius:20px;padding:30px;position:relative;overflow:hidden;box-shadow:0 16px 48px rgba(30,144,255,.3);">
+        <div style="position:absolute;top:0;right:0;background:rgba(255,255,255,.15);color:#fff;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:6px 14px;border-bottom-left-radius:12px;">Most Popular</div>
+        <div style="width:52px;height:52px;background:rgba(255,255,255,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:10px;">AC Repair &amp; Tune-Up</h3>
+        <p style="font-size:14px;line-height:1.65;color:rgba(255,255,255,.8);margin-bottom:20px;">Fast diagnosis and repair for all AC brands. Same-day fixes for most common issues guaranteed.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#fff;font-size:13px;font-weight:600;">
+          <span>Learn More</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="background:#fff;border:1.5px solid #E3EAF8;border-radius:20px;padding:30px;transition:border-color .25s,transform .25s,box-shadow .25s;" style-hover="border-color:#FF6B2B;transform:translateY(-4px);box-shadow:0 12px 36px rgba(255,107,43,.08);">
+        <div style="width:52px;height:52px;background:#FFF3EE;border:1px solid #FFD5C0;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#0B1A2F;margin-bottom:10px;">Heating Systems</h3>
+        <p style="font-size:14px;line-height:1.65;color:#4B6080;margin-bottom:20px;">Furnace repair, heat pump installation, and boiler services to keep you warm all winter long.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#FF6B2B;font-size:13px;font-weight:600;">
+          <span>Learn More</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div style="background:#fff;border:1.5px solid #E3EAF8;border-radius:20px;padding:30px;transition:border-color .25s,transform .25s,box-shadow .25s;" style-hover="border-color:#7C5CEA;transform:translateY(-4px);box-shadow:0 12px 36px rgba(124,92,234,.08);">
+        <div style="width:52px;height:52px;background:#F3F0FF;border:1px solid #D4C8F8;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#7C5CEA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#0B1A2F;margin-bottom:10px;">Duct Cleaning</h3>
+        <p style="font-size:14px;line-height:1.65;color:#4B6080;margin-bottom:20px;">Improve indoor air quality with thorough duct and vent cleaning for a healthier home environment.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#7C5CEA;font-size:13px;font-weight:600;">
+          <span>Learn More</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div style="background:#fff;border:1.5px solid #E3EAF8;border-radius:20px;padding:30px;transition:border-color .25s,transform .25s,box-shadow .25s;" style-hover="border-color:#16A362;transform:translateY(-4px);box-shadow:0 12px 36px rgba(22,163,98,.08);">
+        <div style="width:52px;height:52px;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#16A362" stroke-width="1.5"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="#16A362" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#0B1A2F;margin-bottom:10px;">Preventive Maintenance</h3>
+        <p style="font-size:14px;line-height:1.65;color:#4B6080;margin-bottom:20px;">Seasonal tune-ups and maintenance plans to extend the life of your HVAC system and reduce bills.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#16A362;font-size:13px;font-weight:600;">
+          <span>Learn More</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Card 6 — Emergency -->
+      <div style="background:linear-gradient(145deg,#FFF5F1,#FFEEE6);border:1.5px solid #FFD5C0;border-radius:20px;padding:30px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-4px);box-shadow:0 12px 36px rgba(255,107,43,.15);">
+        <div style="position:absolute;top:16px;right:16px;background:#FF6B2B;color:#fff;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:100px;">24/7</div>
+        <div style="width:52px;height:52px;background:linear-gradient(135deg,#FF6B2B,#FF9A5C);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 6px 18px rgba(255,107,43,.25);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#0B1A2F;margin-bottom:10px;">Emergency Repair</h3>
+        <p style="font-size:14px;line-height:1.65;color:#4B6080;margin-bottom:20px;">HVAC emergency? We're dispatching within the hour, day or night, weekends and holidays.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#FF6B2B;font-size:13px;font-weight:600;">
+          <span>Call Now</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" style="padding:100px 56px;background:#fff;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(circle,rgba(30,144,255,.04) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <!-- Left visual — real photo -->
+    <div style="position:relative;padding-bottom:24px;padding-right:24px;">
+      <div style="border-radius:24px;overflow:hidden;box-shadow:0 20px 56px rgba(30,144,255,.12),0 4px 16px rgba(11,26,47,.08);position:relative;aspect-ratio:4/3;">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="HVAC Technician at work" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        <!-- Subtle tint overlay -->
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(11,26,47,.35) 0%,transparent 60%);pointer-events:none;"></div>
+        <!-- Status badge -->
+        <div style="position:absolute;bottom:18px;left:18px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border:1px solid #D6E4F7;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px rgba(11,26,47,.1);">
+          <div style="width:8px;height:8px;border-radius:50%;background:#16A362;box-shadow:0 0 0 3px rgba(22,163,98,.2);flex:none;"></div>
+          <div>
+            <div style="font-size:12px;color:#0B1A2F;font-weight:600;">NATE Certified Technician</div>
+            <div style="font-size:11px;color:#7A95B8;margin-top:1px;">Fully licensed &amp; insured</div>
+          </div>
+        </div>
+      </div>
+      <!-- Floating stat pill -->
+      <div style="position:absolute;bottom:0;right:0;background:linear-gradient(135deg,#1E90FF,#00C6FF);border-radius:16px;padding:20px 24px;box-shadow:0 12px 36px rgba(30,144,255,.3);">
+        <div style="font-size:36px;font-weight:700;color:#fff;font-family:'DM Serif Display',serif;line-height:1;">15+</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.85);font-weight:500;margin-top:4px;">Years in the<br/>industry</div>
+      </div>
+      <!-- Small photo strip — team faces -->
+      <div style="position:absolute;top:16px;right:0;background:#fff;border:1.5px solid #D6E4F7;border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:0 4px 16px rgba(11,26,47,.08);">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=60&q=80" alt="Tech" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 6px rgba(11,26,47,.1);" />
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=60&q=80" alt="Tech" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 6px rgba(11,26,47,.1);" />
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=60&q=80" alt="Tech" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 6px rgba(11,26,47,.1);" />
+        <div style="font-size:10px;color:#7A95B8;font-weight:600;text-align:center;margin-top:2px;">50+<br/>Techs</div>
+      </div>
+    </div>
+
+    <!-- Right text -->
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#EEF5FF;border:1px solid #C2D9FF;border-radius:100px;padding:6px 18px;margin-bottom:18px;">
+        <span style="font-size:13px;font-weight:600;color:#1E90FF;letter-spacing:.5px;text-transform:uppercase;">Why Choose Us</span>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(30px,3.5vw,46px);line-height:1.12;letter-spacing:-.8px;color:#0B1A2F;margin-bottom:18px;">We Don't Just Fix It —<br/>We <span style="color:#1E90FF;">Get It Right</span></h2>
+      <p style="font-size:16px;line-height:1.75;color:#4B6080;margin-bottom:32px;">With over 15 years serving local communities, our certified technicians bring expertise, integrity, and speed to every job. No guesswork. No upsells. Just reliable service.</p>
+
+      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:36px;">
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#F4F7FE;border:1px solid #E3EAF8;border-radius:14px;padding:18px 20px;">
+          <div style="width:40px;height:40px;background:#EEF5FF;border:1px solid #C2D9FF;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#1E90FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#1E90FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:#0B1A2F;margin-bottom:3px;">Certified &amp; Background-Checked Technicians</div>
+            <div style="font-size:13px;color:#4B6080;line-height:1.5;">Every technician is NATE-certified, insured, and fully vetted before entering your home.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#F4F7FE;border:1px solid #E3EAF8;border-radius:14px;padding:18px 20px;">
+          <div style="width:40px;height:40px;background:#FFF3EE;border:1px solid #FFD5C0;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#FF6B2B" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:#0B1A2F;margin-bottom:3px;">Same-Day Service Guarantee</div>
+            <div style="font-size:13px;color:#4B6080;line-height:1.5;">Call before 2pm and we'll have a tech at your door same day — or the next service is free.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#F4F7FE;border:1px solid #E3EAF8;border-radius:14px;padding:18px 20px;">
+          <div style="width:40px;height:40px;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#16A362" stroke-width="1.5" fill="#16A362" fill-opacity="0.15" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:#0B1A2F;margin-bottom:3px;">100% Satisfaction or Money Back</div>
+            <div style="font-size:13px;color:#4B6080;line-height:1.5;">Not happy? We'll fix it free or give you a full refund. No questions, no hassle.</div>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;background:#1E90FF;color:#fff;font-size:15px;font-weight:600;padding:15px 32px;border-radius:10px;text-decoration:none;box-shadow:0 8px 24px rgba(30,144,255,.28);transition:background .2s,transform .15s;" style-hover="background:#1678d4;transform:translateY(-2px);">
+        Get Your Free Estimate
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section id="process" style="padding:120px 56px;background:#F4F7FE;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:64px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#EEF5FF;border:1px solid #C2D9FF;border-radius:100px;padding:6px 18px;margin-bottom:18px;">
+        <span style="font-size:13px;font-weight:600;color:#1E90FF;letter-spacing:.5px;text-transform:uppercase;">Our Process</span>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(34px,4vw,50px);line-height:1.1;letter-spacing:-1px;color:#0B1A2F;margin-bottom:14px;">4 Simple Steps to<br/>Perfect Comfort</h2>
+      <p style="font-size:16px;color:#4B6080;max-width:460px;margin:0 auto;line-height:1.7;">Book online, we arrive, diagnose, and fix — it's that straightforward.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;">
+      <div style="position:absolute;top:48px;left:calc(12.5% + 16px);right:calc(12.5% + 16px);height:2px;background:linear-gradient(90deg,#1E90FF33,#1E90FF66,#1E90FF33);z-index:0;border-radius:2px;"></div>
+
+      <div style="background:#fff;border:1.5px solid #E3EAF8;border-radius:20px;padding:28px 22px;text-align:center;position:relative;z-index:1;box-shadow:0 4px 16px rgba(11,26,47,.05);">
+        <div style="width:56px;height:56px;background:linear-gradient(135deg,#1E90FF,#0070D6);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(30,144,255,.25);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.82 19a19.5 19.5 0 01-6-6A19.79 19.79 0 013 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div style="position:absolute;top:16px;left:16px;width:24px;height:24px;background:#EEF5FF;border:1px solid #C2D9FF;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#1E90FF;">01</div>
+        <h3 style="font-size:16px;font-weight:700;color:#0B1A2F;margin-bottom:8px;">Book Online</h3>
+        <p style="font-size:13px;line-height:1.6;color:#4B6080;">Schedule in 60 seconds through our website or call us directly.</p>
+      </div>
+
+      <div style="background:#fff;border:1.5px solid #E3EAF8;border-radius:20px;padding:28px 22px;text-align:center;position:relative;z-index:1;box-shadow:0 4px 16px rgba(11,26,47,.05);">
+        <div style="width:56px;height:56px;background:linear-gradient(135deg,#00AADD,#0086B3);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(0,170,221,.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" stroke="#fff" stroke-width="1.5"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" stroke="#fff" stroke-width="1.5"/></svg>
+        </div>
+        <div style="position:absolute;top:16px;left:16px;width:24px;height:24px;background:#F0FAFF;border:1px solid #B8E4F7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#00AADD;">02</div>
+        <h3 style="font-size:16px;font-weight:700;color:#0B1A2F;margin-bottom:8px;">We Arrive Fast</h3>
+        <p style="font-size:13px;line-height:1.6;color:#4B6080;">Our tech shows up on time with all parts needed for most repairs.</p>
+      </div>
+
+      <div style="background:#fff;border:1.5px solid #E3EAF8;border-radius:20px;padding:28px 22px;text-align:center;position:relative;z-index:1;box-shadow:0 4px 16px rgba(11,26,47,.05);">
+        <div style="width:56px;height:56px;background:linear-gradient(135deg,#7C5CEA,#5B3DD6);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(124,92,234,.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#fff" stroke-width="1.5"/><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div style="position:absolute;top:16px;left:16px;width:24px;height:24px;background:#F3F0FF;border:1px solid #D4C8F8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#7C5CEA;">03</div>
+        <h3 style="font-size:16px;font-weight:700;color:#0B1A2F;margin-bottom:8px;">Diagnose &amp; Quote</h3>
+        <p style="font-size:13px;line-height:1.6;color:#4B6080;">Transparent upfront pricing before any work begins. No surprises.</p>
+      </div>
+
+      <div style="background:#fff;border:1.5px solid #E3EAF8;border-radius:20px;padding:28px 22px;text-align:center;position:relative;z-index:1;box-shadow:0 4px 16px rgba(11,26,47,.05);">
+        <div style="width:56px;height:56px;background:linear-gradient(135deg,#16A362,#0E7A49);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(22,163,98,.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="position:absolute;top:16px;left:16px;width:24px;height:24px;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#16A362;">04</div>
+        <h3 style="font-size:16px;font-weight:700;color:#0B1A2F;margin-bottom:8px;">Fixed &amp; Verified</h3>
+        <p style="font-size:13px;line-height:1.6;color:#4B6080;">We complete the work and run a full system test before we leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testimonials" style="padding:100px 56px;background:#fff;border-top:1px solid #E3EAF8;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#EEF5FF;border:1px solid #C2D9FF;border-radius:100px;padding:6px 18px;margin-bottom:18px;">
+        <span style="font-size:13px;font-weight:600;color:#1E90FF;letter-spacing:.5px;text-transform:uppercase;">Customer Reviews</span>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(34px,4vw,50px);line-height:1.1;letter-spacing:-1px;color:#0B1A2F;margin-bottom:14px;">What Our Customers Say</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;">
+        <span style="color:#FBBF24;font-size:22px;">★★★★★</span>
+        <span style="font-size:16px;font-weight:600;color:#0B1A2F;">4.9</span>
+        <span style="font-size:14px;color:#7A95B8;">from 500+ reviews on Google</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+      <div style="background:#F4F7FE;border:1.5px solid #E3EAF8;border-radius:20px;padding:28px;transition:border-color .25s,transform .25s;" style-hover="border-color:#1E90FF;transform:translateY(-4px);">
+        <div style="display:flex;gap:3px;margin-bottom:16px;"><span style="color:#FBBF24;font-size:16px;">★★★★★</span></div>
+        <p style="font-size:15px;line-height:1.7;color:#4B6080;margin-bottom:22px;font-style:italic;">"AirPro came within 2 hours of my call on a Sunday. The tech was professional, explained everything clearly, and had our AC back running in under an hour. Unbelievable service!"</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid #E3EAF8;">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=80&q=80" alt="Jennifer Martinez" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 2px 8px rgba(11,26,47,.12);" />
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0B1A2F;">Jennifer Martinez</div>
+            <div style="font-size:12px;color:#7A95B8;margin-top:2px;">Homeowner · Austin, TX</div>
+          </div>
+          <div style="margin-left:auto;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:8px;padding:4px 10px;">
+            <span style="font-size:11px;color:#16A362;font-weight:600;">Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured review -->
+      <div style="background:linear-gradient(145deg,#1469CC,#1E90FF);border:none;border-radius:20px;padding:28px;box-shadow:0 16px 48px rgba(30,144,255,.25);transform:translateY(-8px);">
+        <div style="display:flex;gap:3px;margin-bottom:16px;"><span style="color:#FFE066;font-size:16px;">★★★★★</span></div>
+        <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.9);margin-bottom:22px;font-style:italic;">"Best HVAC company I've ever used. They installed a complete new system — on time, on budget, and the work is flawless. The house has never been more comfortable. Highly recommended!"</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=80&q=80" alt="Robert Chen" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.2);" />
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">Robert Chen</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:2px;">Property Manager · Dallas, TX</div>
+          </div>
+          <div style="margin-left:auto;background:rgba(255,255,255,.2);border-radius:8px;padding:4px 10px;">
+            <span style="font-size:11px;color:#fff;font-weight:600;">Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#F4F7FE;border:1.5px solid #E3EAF8;border-radius:20px;padding:28px;transition:border-color .25s,transform .25s;" style-hover="border-color:#1E90FF;transform:translateY(-4px);">
+        <div style="display:flex;gap:3px;margin-bottom:16px;"><span style="color:#FBBF24;font-size:16px;">★★★★★</span></div>
+        <p style="font-size:15px;line-height:1.7;color:#4B6080;margin-bottom:22px;font-style:italic;">"Their maintenance plan has saved me thousands. They catch issues before they become expensive problems. The technicians are always courteous and leave my home spotless."</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid #E3EAF8;">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=80&q=80" alt="Sarah Thompson" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 2px 8px rgba(11,26,47,.12);" />
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#0B1A2F;">Sarah Thompson</div>
+            <div style="font-size:12px;color:#7A95B8;margin-top:2px;">Homeowner · Houston, TX</div>
+          </div>
+          <div style="margin-left:auto;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:8px;padding:4px 10px;">
+            <span style="font-size:11px;color:#16A362;font-weight:600;">Verified</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA + FORM ═══ -->
+<section id="contact" style="padding:100px 56px;background:#F4F7FE;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="background:linear-gradient(135deg,#1469CC 0%,#1E90FF 50%,#00AADD 100%);border-radius:28px;padding:72px 80px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;box-shadow:0 24px 64px rgba(30,144,255,.25);">
+      <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.08),transparent);pointer-events:none;border-radius:50%;"></div>
+      <div style="position:absolute;bottom:-60px;left:60px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.05),transparent);pointer-events:none;border-radius:50%;"></div>
+
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:6px 18px;margin-bottom:24px;">
+          <span style="font-size:13px;font-weight:600;color:#fff;letter-spacing:.5px;text-transform:uppercase;">Free Estimate</span>
+        </div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(30px,3.5vw,46px);line-height:1.1;letter-spacing:-.8px;color:#fff;margin-bottom:18px;">Ready for Perfect<br/>Home Comfort?</h2>
+        <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.8);margin-bottom:32px;">Get a free no-obligation estimate. We respond within 30 minutes during business hours.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.82 19a19.5 19.5 0 01-6-6A19.79 19.79 0 013 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z" stroke="#fff" stroke-width="1.5"/></svg>
+            </div>
+            <span style="color:rgba(255,255,255,.9);font-size:15px;font-weight:500;">1-800-555-1234</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#fff" stroke-width="1.5"/><polyline points="22,6 12,13 2,6" stroke="#fff" stroke-width="1.5"/></svg>
+            </div>
+            <span style="color:rgba(255,255,255,.9);font-size:15px;font-weight:500;">hello@airpro-hvac.com</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <span style="color:rgba(255,255,255,.9);font-size:15px;font-weight:500;">Mon–Sun · 7am–10pm · 24/7 Emergency</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div style="background:#fff;border-radius:20px;padding:36px;box-shadow:0 8px 32px rgba(11,26,47,.12);">
+        <h3 style="font-size:20px;font-weight:700;color:#0B1A2F;margin-bottom:22px;letter-spacing:-.3px;">Request a Free Quote</h3>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label style="display:block;font-size:12px;font-weight:600;color:#7A95B8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">First Name</label>
+              <input type="text" placeholder="John" style="width:100%;background:#F4F7FE;border:1.5px solid #E3EAF8;border-radius:10px;padding:12px 14px;color:#0B1A2F;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#1E90FF';this.style.background='#fff';" onblur="this.style.borderColor='#E3EAF8';this.style.background='#F4F7FE';" />
+            </div>
+            <div>
+              <label style="display:block;font-size:12px;font-weight:600;color:#7A95B8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Last Name</label>
+              <input type="text" placeholder="Doe" style="width:100%;background:#F4F7FE;border:1.5px solid #E3EAF8;border-radius:10px;padding:12px 14px;color:#0B1A2F;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#1E90FF';this.style.background='#fff';" onblur="this.style.borderColor='#E3EAF8';this.style.background='#F4F7FE';" />
+            </div>
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#7A95B8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Phone Number</label>
+            <input type="tel" placeholder="+1 (555) 000-0000" style="width:100%;background:#F4F7FE;border:1.5px solid #E3EAF8;border-radius:10px;padding:12px 14px;color:#0B1A2F;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#1E90FF';this.style.background='#fff';" onblur="this.style.borderColor='#E3EAF8';this.style.background='#F4F7FE';" />
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#7A95B8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Service Needed</label>
+            <select style="width:100%;background:#F4F7FE;border:1.5px solid #E3EAF8;border-radius:10px;padding:12px 14px;color:#4B6080;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;transition:border-color .2s;" onfocus="this.style.borderColor='#1E90FF';this.style.background='#fff';" onblur="this.style.borderColor='#E3EAF8';this.style.background='#F4F7FE';">
+              <option value="">Select a service...</option>
+              <option value="ac-install">AC Installation</option>
+              <option value="ac-repair">AC Repair &amp; Tune-Up</option>
+              <option value="heating">Heating Systems</option>
+              <option value="ducts">Duct Cleaning</option>
+              <option value="maintenance">Preventive Maintenance</option>
+              <option value="emergency">Emergency Repair</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#7A95B8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Message</label>
+            <textarea placeholder="Describe your issue..." rows="3" style="width:100%;background:#F4F7FE;border:1.5px solid #E3EAF8;border-radius:10px;padding:12px 14px;color:#0B1A2F;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;resize:none;transition:border-color .2s;" onfocus="this.style.borderColor='#1E90FF';this.style.background='#fff';" onblur="this.style.borderColor='#E3EAF8';this.style.background='#F4F7FE';"></textarea>
+          </div>
+          <button onclick="this.textContent='✓ Submitted! We\'ll call you shortly';this.style.background='#16A362';this.style.boxShadow='0 8px 24px rgba(22,163,98,.28)';setTimeout(()=>{this.textContent='Submit Request';this.style.background='#1E90FF';this.style.boxShadow='0 8px 24px rgba(30,144,255,.28)';},3000);" style="width:100%;background:#1E90FF;color:#fff;font-size:15px;font-weight:600;padding:15px;border-radius:10px;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(30,144,255,.28);font-family:'DM Sans',sans-serif;transition:background .2s,transform .15s;" style-hover="background:#1678d4;transform:translateY(-1px);">Submit Request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer style="background:#0B1A2F;padding:72px 56px 36px;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <div style="width:36px;height:36px;background:linear-gradient(135deg,#1E90FF,#00C6FF);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="#fff" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#fff"/></svg>
+          </div>
+          <span style="font-size:17px;font-weight:700;color:#fff;">AirPro<span style="color:#1E90FF;">HVAC</span></span>
+        </div>
+        <p style="font-size:14px;line-height:1.7;color:rgba(255,255,255,.4);max-width:270px;margin-bottom:22px;">Your trusted local HVAC partner for over 15 years. Comfort is not just our service — it's our promise.</p>
+        <div style="display:flex;gap:10px;">
+          <a href="#" style="width:34px;height:34px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);text-decoration:none;font-size:12px;transition:background .2s;" style-hover="background:rgba(30,144,255,.3);">f</a>
+          <a href="#" style="width:34px;height:34px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);text-decoration:none;font-size:12px;transition:background .2s;" style-hover="background:rgba(30,144,255,.3);">in</a>
+          <a href="#" style="width:34px;height:34px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);text-decoration:none;font-size:12px;transition:background .2s;" style-hover="background:rgba(30,144,255,.3);">ig</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:18px;">Services</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">AC Installation</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">AC Repair</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Heating Systems</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Duct Cleaning</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Maintenance Plans</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:18px;">Company</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">About Us</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Our Team</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Reviews</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Blog</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Careers</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:18px;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><path d="M22 16.9v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.82 19a19.5 19.5 0 01-6-6A19.79 19.79 0 013 4.18 2 2 0 015 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z" stroke="#1E90FF" stroke-width="1.5"/></svg>
+            <span style="color:rgba(255,255,255,.4);font-size:14px;">1-800-555-1234</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#1E90FF" stroke-width="1.5"/><polyline points="22,6 12,13 2,6" stroke="#1E90FF" stroke-width="1.5"/></svg>
+            <span style="color:rgba(255,255,255,.4);font-size:14px;">hello@airpro-hvac.com</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#1E90FF" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="#1E90FF" stroke-width="1.5"/></svg>
+            <span style="color:rgba(255,255,255,.4);font-size:14px;line-height:1.5;">1234 Comfort Lane<br/>Austin, TX 78701</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.07);padding-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+      <span style="font-size:13px;color:rgba(255,255,255,.25);">© 2025 AirPro HVAC. All rights reserved.</span>
+      <div style="display:flex;gap:22px;">
+        <a href="#" style="color:rgba(255,255,255,.25);font-size:13px;text-decoration:none;" style-hover="color:rgba(255,255,255,.6);">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,.25);font-size:13px;text-decoration:none;" style-hover="color:rgba(255,255,255,.6);">Terms of Service</a>
+        <a href="#" style="color:rgba(255,255,255,.25);font-size:13px;text-decoration:none;" style-hover="color:rgba(255,255,255,.6);">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {};
+  componentDidMount() {
+    this._onScroll = () => {};
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #F4F0EB; color: #1B1008; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    input::placeholder, textarea::placeholder { color: #9A8878; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(11,107,138,.45)} 100%{box-shadow:0 0 0 8px rgba(11,107,138,0)} }
+  </style>
+</helmet>
+
+<!-- ═══ NAV ═══ -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(254,252,250,0.93);backdrop-filter:blur(20px);border-bottom:1px solid #E0D6CC;box-shadow:0 1px 12px rgba(27,16,8,0.06);">
+  <div style="display:flex;align-items:center;gap:10px;flex:none;">
+    <div style="width:38px;height:38px;background:linear-gradient(135deg,#0B6B8A,#0E9ABF);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(11,107,138,.3);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.5 2 6 5.8 6 9.2c0 2.6 1.4 4.9 3.4 6.5L12 22l2.6-6.3C16.6 14.1 18 11.8 18 9.2 18 5.8 15.5 2 12 2z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" fill="#fff"/></svg>
+    </div>
+    <span style="font-size:18px;font-weight:700;letter-spacing:-.3px;color:#1B1008;">FlowPro<span style="color:#0B6B8A;">Plumbing</span></span>
+  </div>
+  <div style="display:flex;gap:36px;align-items:center;">
+    <a href="#services" style="color:#5A4E44;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#1B1008;">Services</a>
+    <a href="#about" style="color:#5A4E44;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#1B1008;">About</a>
+    <a href="#process" style="color:#5A4E44;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#1B1008;">How It Works</a>
+    <a href="#testimonials" style="color:#5A4E44;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#1B1008;">Reviews</a>
+    <a href="#contact" style="color:#5A4E44;font-size:15px;font-weight:500;text-decoration:none;transition:color .2s;" style-hover="color:#1B1008;">Contact</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;flex:none;">
+    <a href="tel:+18005555678" style="display:flex;align-items:center;gap:7px;color:#5A4E44;font-size:14px;font-weight:500;text-decoration:none;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012.39 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      1-800-555-5678
+    </a>
+    <a href="#contact" style="background:#0B6B8A;color:#fff;font-size:14px;font-weight:600;padding:10px 22px;border-radius:8px;text-decoration:none;box-shadow:0 4px 14px rgba(11,107,138,.3);transition:background .2s,transform .2s;" style-hover="background:#084F68;transform:translateY(-1px);">Book a Plumber</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══  Photo LEFT · Text RIGHT (opposite of HVAC) -->
+<section style="min-height:100vh;padding-top:72px;display:flex;align-items:center;background:linear-gradient(155deg,#FEFCFA 0%,#F4F0EB 55%,#EDE7DF 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;bottom:-120px;right:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(11,107,138,.06) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;top:-100px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(192,117,53,.05) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(11,107,138,.07) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;"></div>
+
+  <div style="max-width:1280px;margin:0 auto;padding:80px 56px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;width:100%;position:relative;">
+
+    <!-- LEFT — Technician Photo -->
+    <div style="position:relative;padding-bottom:24px;padding-left:28px;">
+      <div style="border-radius:24px;overflow:hidden;box-shadow:0 24px 64px rgba(11,107,138,.15),0 4px 20px rgba(27,16,8,.1);animation:float 6s ease-in-out infinite;position:relative;aspect-ratio:3/4;">
+        <img src="uploads/pasted-1782065306391-0.png" alt="Professional Plumber" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center center;" />
+        <div style="position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(to top,rgba(27,16,8,.82),transparent);pointer-events:none;"></div>
+        <!-- Stats inside photo bottom -->
+        <div style="position:absolute;bottom:20px;left:16px;right:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <div style="background:rgba(254,252,250,.92);backdrop-filter:blur(12px);border-radius:12px;padding:10px;text-align:center;">
+            <div style="font-size:18px;font-weight:700;color:#0B6B8A;font-family:'DM Serif Display',serif;">0</div>
+            <div style="font-size:10px;color:#9A8878;margin-top:1px;">Leaks Left</div>
+          </div>
+          <div style="background:rgba(254,252,250,.92);backdrop-filter:blur(12px);border-radius:12px;padding:10px;text-align:center;">
+            <div style="font-size:18px;font-weight:700;color:#C07535;font-family:'DM Serif Display',serif;">100%</div>
+            <div style="font-size:10px;color:#9A8878;margin-top:1px;">Guarantee</div>
+          </div>
+          <div style="background:rgba(254,252,250,.92);backdrop-filter:blur(12px);border-radius:12px;padding:10px;text-align:center;">
+            <div style="font-size:18px;font-weight:700;color:#1A9972;font-family:'DM Serif Display',serif;">A+</div>
+            <div style="font-size:10px;color:#9A8878;margin-top:1px;">BBB Rating</div>
+          </div>
+        </div>
+        <!-- Badge top-RIGHT (HVAC had top-left) -->
+        <div style="position:absolute;top:16px;right:16px;background:rgba(254,252,250,.95);backdrop-filter:blur(10px);border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(27,16,8,.1);">
+          <div style="width:8px;height:8px;border-radius:50%;background:#1A9972;box-shadow:0 0 0 3px rgba(26,153,114,.2);flex:none;"></div>
+          <span style="font-size:12px;font-weight:600;color:#1B1008;">On Call Now</span>
+        </div>
+      </div>
+      <!-- Floating badge LEFT (HVAC had it right) -->
+      <div style="position:absolute;top:28px;left:0;background:linear-gradient(135deg,#C07535,#D4956A);border-radius:16px;padding:14px 20px;box-shadow:0 12px 32px rgba(192,117,53,.3);">
+        <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.5px;">Response Time</div>
+        <div style="font-size:22px;font-weight:700;color:#fff;margin-top:2px;">Under 45min</div>
+      </div>
+      <!-- Floating badge BOTTOM-RIGHT (HVAC had bottom-left) -->
+      <div style="position:absolute;bottom:10px;right:-20px;background:#FEFCFA;border:1.5px solid #E0D6CC;border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 24px rgba(27,16,8,.1);">
+        <div style="display:flex;">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=60&q=80" alt="" style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex:none;" />
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=60&q=80" alt="" style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex:none;margin-left:-8px;" />
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=60&q=80" alt="" style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff;flex:none;margin-left:-8px;" />
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:#1B1008;">1,200+ Happy Clients</div>
+          <div style="font-size:11px;color:#9A8878;margin-top:1px;">This month alone</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — Text (opposite of HVAC) -->
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#E8F4F8;border:1px solid #B8DCE8;border-radius:100px;padding:6px 16px;margin-bottom:28px;">
+        <span style="width:7px;height:7px;background:#0B6B8A;border-radius:50%;display:inline-block;animation:pulse-ring 1.8s ease infinite;"></span>
+        <span style="font-size:13px;font-weight:600;color:#0B6B8A;letter-spacing:.4px;">Available 24/7 — Emergency Plumbing</span>
+      </div>
+      <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(44px,5vw,68px);line-height:1.06;letter-spacing:-2px;color:#1B1008;margin-bottom:24px;">
+        Trusted<br/><span style="color:#0B6B8A;">Plumbing</span> &amp;<br/>Drain Experts
+      </h1>
+      <p style="font-size:17px;line-height:1.75;color:#5A4E44;max-width:480px;margin-bottom:40px;">Fast, reliable plumbing for homes and businesses. Licensed plumbers, same-day service, and a leak-free guarantee you can count on year-round.</p>
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:48px;flex-wrap:wrap;">
+        <a href="#contact" style="background:#0B6B8A;color:#fff;font-size:15px;font-weight:600;padding:15px 32px;border-radius:10px;text-decoration:none;display:flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(11,107,138,.3);transition:background .2s,transform .15s;" style-hover="background:#084F68;transform:translateY(-2px);">
+          Book a Plumber
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="tel:+18005555678" style="display:flex;align-items:center;gap:10px;color:#1B1008;font-size:15px;font-weight:500;text-decoration:none;background:#FEFCFA;border:1.5px solid #E0D6CC;padding:15px 28px;border-radius:10px;box-shadow:0 2px 8px rgba(27,16,8,.06);transition:border-color .2s,box-shadow .2s;" style-hover="border-color:#0B6B8A;box-shadow:0 4px 16px rgba(11,107,138,.12);">
+          <div style="width:32px;height:32px;background:#E8F4F8;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012.39 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z" stroke="#0B6B8A" stroke-width="1.5"/></svg>
+          </div>
+          Call 1-800-555-5678
+        </a>
+      </div>
+      <div style="display:flex;gap:28px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;color:#5A4E44;font-size:13px;font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#0B6B8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#0B6B8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Licensed &amp; Insured
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;color:#5A4E44;font-size:13px;font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#0B6B8A" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#0B6B8A" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Same-Day Service
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;color:#5A4E44;font-size:13px;font-weight:500;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#FBBF24" stroke-width="1.5" fill="#FBBF24" stroke-linecap="round"/></svg>
+          4.9★ Rated (400+ Reviews)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS MARQUEE ═══ -->
+<div style="background:#FEFCFA;border-top:1px solid #E0D6CC;border-bottom:1px solid #E0D6CC;overflow:hidden;">
+  <div style="display:flex;animation:marquee 28s linear infinite;width:max-content;">
+    <div style="display:flex;flex:none;">
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#0B6B8A;font-family:'DM Serif Display',serif;">12+</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Years Experience</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#C07535;font-family:'DM Serif Display',serif;">6,200+</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Jobs Completed</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#1A9972;font-family:'DM Serif Display',serif;">100%</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Leak-Free Guarantee</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#C07535;font-family:'DM Serif Display',serif;">24/7</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Emergency Response</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#7C5CEA;font-family:'DM Serif Display',serif;">35+</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Licensed Plumbers</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#FBBF24;font-family:'DM Serif Display',serif;">4.9★</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Google Rating</span></div>
+    </div>
+    <div style="display:flex;flex:none;">
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#0B6B8A;font-family:'DM Serif Display',serif;">12+</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Years Experience</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#C07535;font-family:'DM Serif Display',serif;">6,200+</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Jobs Completed</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#1A9972;font-family:'DM Serif Display',serif;">100%</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Leak-Free Guarantee</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#C07535;font-family:'DM Serif Display',serif;">24/7</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Emergency Response</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#7C5CEA;font-family:'DM Serif Display',serif;">35+</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Licensed Plumbers</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding:20px 48px;border-right:1px solid #E0D6CC;flex:none;white-space:nowrap;"><span style="font-size:26px;font-weight:700;color:#FBBF24;font-family:'DM Serif Display',serif;">4.9★</span><span style="font-size:14px;color:#9A8878;font-weight:500;">Google Rating</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SERVICES ═══  Different grid: wide featured + emergency in row 1, 3 equal in row 2 -->
+<section id="services" style="padding:120px 56px;background:#F4F0EB;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <!-- Services header — image banner -->
+    <div style="position:relative;border-radius:28px;overflow:hidden;margin-bottom:64px;min-height:320px;display:flex;align-items:center;justify-content:center;">
+      <!-- Background image -->
+      <img src="uploads/pasted-1782065393312-0.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;pointer-events:none;" />
+      <!-- Gradient overlay -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,30,42,.93) 0%,rgba(11,107,138,.82) 60%,rgba(14,138,173,.75) 100%);pointer-events:none;"></div>
+      <!-- Decorative dot grid -->
+      <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
+      <!-- Decorative blobs -->
+      <div style="position:absolute;top:-60px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(192,117,53,.18),transparent);pointer-events:none;border-radius:50%;"></div>
+      <div style="position:absolute;bottom:-40px;left:-40px;width:240px;height:240px;background:radial-gradient(circle,rgba(255,255,255,.06),transparent);pointer-events:none;border-radius:50%;"></div>
+
+      <!-- Content -->
+      <div style="position:relative;z-index:1;text-align:center;padding:64px 56px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:100px;padding:6px 18px;margin-bottom:20px;">
+          <span style="width:6px;height:6px;background:#4AAFCF;border-radius:50%;display:inline-block;"></span>
+          <span style="font-size:13px;font-weight:600;color:#fff;letter-spacing:.5px;text-transform:uppercase;">Our Services</span>
+        </div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(34px,4vw,54px);line-height:1.08;letter-spacing:-1px;color:#fff;margin-bottom:16px;">Complete Plumbing Solutions<br/>For Every Need</h2>
+        <p style="font-size:16px;color:rgba(255,255,255,.75);max-width:500px;margin:0 auto;line-height:1.75;">From dripping faucets to full re-pipes, our licensed team handles everything with precision and care.</p>
+        <!-- Quick stats row -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:32px;margin-top:32px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#4AE5B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:14px;color:rgba(255,255,255,.85);font-weight:500;">Licensed &amp; Insured</span>
+          </div>
+          <div style="width:1px;height:16px;background:rgba(255,255,255,.2);"></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#4AE5B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:14px;color:rgba(255,255,255,.85);font-weight:500;">Same-Day Service</span>
+          </div>
+          <div style="width:1px;height:16px;background:rgba(255,255,255,.2);"></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#4AE5B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:14px;color:rgba(255,255,255,.85);font-weight:500;">Flat-Rate Pricing</span>
+          </div>
+          <div style="width:1px;height:16px;background:rgba(255,255,255,.2);"></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#4AE5B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:14px;color:rgba(255,255,255,.85);font-weight:500;">1-Year Warranty</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 1: Featured (spans 2) + Emergency (1 col) — different from HVAC's center-featured 3+3 -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px;">
+
+      <!-- Featured wide card (col span 2) -->
+      <div style="grid-column:span 2;background:linear-gradient(145deg,#063D52,#0B6B8A);border-radius:20px;padding:36px;position:relative;overflow:hidden;box-shadow:0 16px 48px rgba(11,107,138,.3);display:flex;gap:36px;align-items:center;">
+        <div style="position:absolute;top:0;right:0;background:rgba(255,255,255,.12);color:#fff;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:6px 14px;border-bottom-left-radius:12px;">Most Popular</div>
+        <div style="flex:1;">
+          <div style="width:52px;height:52px;background:rgba(255,255,255,.18);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 9h18M3 15h18M12 3v18" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:10px;">Pipe Repair &amp; Installation</h3>
+          <p style="font-size:14px;line-height:1.7;color:rgba(255,255,255,.8);margin-bottom:24px;">Full pipe replacement, burst pipe repair, new installations, and re-piping for any property size. We carry parts for all major brands.</p>
+          <div style="display:flex;align-items:center;gap:6px;color:#fff;font-size:13px;font-weight:600;">
+            <span>Learn More</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <!-- Right accent visual -->
+        <div style="flex:none;display:flex;flex-direction:column;gap:12px;align-items:center;">
+          <div style="background:rgba(255,255,255,.15);border-radius:16px;padding:16px 22px;text-align:center;">
+            <div style="font-size:30px;font-weight:700;color:#fff;font-family:'DM Serif Display',serif;">From</div>
+            <div style="font-size:38px;font-weight:700;color:#fff;font-family:'DM Serif Display',serif;line-height:1;">$89</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.7);margin-top:4px;">Flat rate diagnosis</div>
+          </div>
+          <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px;">
+            <div style="width:7px;height:7px;background:#4AE5B0;border-radius:50%;flex:none;"></div>
+            <span style="font-size:12px;color:#fff;font-weight:600;">Parts included</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency card (1 col) -->
+      <div style="background:linear-gradient(145deg,#7A3A10,#C07535);border:none;border-radius:20px;padding:30px;position:relative;overflow:hidden;box-shadow:0 16px 48px rgba(192,117,53,.3);">
+        <div style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,.2);color:#fff;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:100px;">24/7</div>
+        <div style="width:52px;height:52px;background:rgba(255,255,255,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:10px;">Emergency Plumbing</h3>
+        <p style="font-size:14px;line-height:1.65;color:rgba(255,255,255,.85);margin-bottom:20px;">Burst pipe? Flooding? We dispatch within 30 minutes, day or night, weekends and holidays.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#fff;font-size:13px;font-weight:600;">
+          <span>Call Now</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: 3 equal cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+      <!-- Water Heater -->
+      <div style="background:#FEFCFA;border:1.5px solid #E0D6CC;border-radius:20px;padding:30px;transition:border-color .25s,transform .25s,box-shadow .25s;" style-hover="border-color:#0B6B8A;transform:translateY(-4px);box-shadow:0 12px 36px rgba(11,107,138,.1);">
+        <div style="width:52px;height:52px;background:#E8F4F8;border:1px solid #B8DCE8;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="#0B6B8A" stroke-width="1.5"/><path d="M10 6h4M10 10h4M12 14v4" stroke="#0B6B8A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#1B1008;margin-bottom:10px;">Water Heater Services</h3>
+        <p style="font-size:14px;line-height:1.65;color:#5A4E44;margin-bottom:20px;">Installation, repair, and flushing for tank and tankless water heaters. We stock all major brands.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#0B6B8A;font-size:13px;font-weight:600;">
+          <span>Learn More</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Drain Cleaning -->
+      <div style="background:#FEFCFA;border:1.5px solid #E0D6CC;border-radius:20px;padding:30px;transition:border-color .25s,transform .25s,box-shadow .25s;" style-hover="border-color:#7C5CEA;transform:translateY(-4px);box-shadow:0 12px 36px rgba(124,92,234,.08);">
+        <div style="width:52px;height:52px;background:#F3F0FF;border:1px solid #D4C8F8;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#7C5CEA" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="#7C5CEA" stroke-width="1.5" stroke-linecap="round"/><path d="M8 12H4M20 12h-4" stroke="#7C5CEA" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#1B1008;margin-bottom:10px;">Drain &amp; Sewer Cleaning</h3>
+        <p style="font-size:14px;line-height:1.65;color:#5A4E44;margin-bottom:20px;">Hydro-jetting and rooter service for clogged drains, slow sinks, and backed-up sewer lines.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#7C5CEA;font-size:13px;font-weight:600;">
+          <span>Learn More</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Leak Detection -->
+      <div style="background:#FEFCFA;border:1.5px solid #E0D6CC;border-radius:20px;padding:30px;transition:border-color .25s,transform .25s,box-shadow .25s;" style-hover="border-color:#1A9972;transform:translateY(-4px);box-shadow:0 12px 36px rgba(26,153,114,.08);">
+        <div style="width:52px;height:52px;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#1A9972" stroke-width="1.5"/><path d="M21 21l-4.35-4.35" stroke="#1A9972" stroke-width="1.5" stroke-linecap="round"/><path d="M11 8v3l2 2" stroke="#1A9972" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:700;color:#1B1008;margin-bottom:10px;">Leak Detection</h3>
+        <p style="font-size:14px;line-height:1.65;color:#5A4E44;margin-bottom:20px;">Non-invasive electronic leak detection for hidden pipe leaks inside walls, floors, and slabs.</p>
+        <div style="display:flex;align-items:center;gap:6px;color:#1A9972;font-size:13px;font-weight:600;">
+          <span>Learn More</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══  Text LEFT · Photo RIGHT (opposite of HVAC) -->
+<section id="about" style="padding:100px 56px;background:#FEFCFA;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;width:500px;height:500px;background:radial-gradient(circle,rgba(11,107,138,.04) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+
+    <!-- LEFT — Text (HVAC had photo left) -->
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#E8F4F8;border:1px solid #B8DCE8;border-radius:100px;padding:6px 18px;margin-bottom:18px;">
+        <span style="font-size:13px;font-weight:600;color:#0B6B8A;letter-spacing:.5px;text-transform:uppercase;">Why Choose Us</span>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(30px,3.5vw,46px);line-height:1.12;letter-spacing:-.8px;color:#1B1008;margin-bottom:18px;">We Don't Just Stop the Leak —<br/>We <span style="color:#0B6B8A;">Fix It Right</span></h2>
+      <p style="font-size:16px;line-height:1.75;color:#5A4E44;margin-bottom:32px;">With over 12 years serving local homeowners, our licensed plumbers bring expertise, honesty, and speed to every job. No guesswork, no surprise charges. Just reliable work.</p>
+
+      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:36px;">
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#F4F0EB;border:1px solid #E0D6CC;border-radius:14px;padding:18px 20px;">
+          <div style="width:40px;height:40px;background:#E8F4F8;border:1px solid #B8DCE8;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#0B6B8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#0B6B8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:#1B1008;margin-bottom:3px;">Licensed, Insured &amp; Background-Checked</div>
+            <div style="font-size:13px;color:#5A4E44;line-height:1.5;">Every plumber is state-licensed, fully insured, and vetted before entering your home.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#F4F0EB;border:1px solid #E0D6CC;border-radius:14px;padding:18px 20px;">
+          <div style="width:40px;height:40px;background:#FBF0E4;border:1px solid #E8C99A;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#C07535" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#C07535" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:#1B1008;margin-bottom:3px;">Upfront Flat-Rate Pricing</div>
+            <div style="font-size:13px;color:#5A4E44;line-height:1.5;">You see the full price before we start. No hidden fees, no meter running while we work.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#F4F0EB;border:1px solid #E0D6CC;border-radius:14px;padding:18px 20px;">
+          <div style="width:40px;height:40px;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#1A9972" stroke-width="1.5" fill="#1A9972" fill-opacity="0.15" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:#1B1008;margin-bottom:3px;">1-Year Workmanship Warranty</div>
+            <div style="font-size:13px;color:#5A4E44;line-height:1.5;">Every repair is backed by a 12-month guarantee. If it leaks again, we fix it free of charge.</div>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;background:#0B6B8A;color:#fff;font-size:15px;font-weight:600;padding:15px 32px;border-radius:10px;text-decoration:none;box-shadow:0 8px 24px rgba(11,107,138,.28);transition:background .2s,transform .15s;" style-hover="background:#084F68;transform:translateY(-2px);">
+        Get Your Free Estimate
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <!-- RIGHT — Photo (HVAC had photo left) -->
+    <div style="position:relative;padding-bottom:24px;padding-right:24px;">
+      <div style="border-radius:24px;overflow:hidden;box-shadow:0 20px 56px rgba(11,107,138,.12),0 4px 16px rgba(27,16,8,.08);position:relative;aspect-ratio:4/3;">
+        <img src="uploads/pasted-1782065393312-0.png" alt="Plumber at work" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center center;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(27,16,8,.35) 0%,transparent 60%);pointer-events:none;"></div>
+        <!-- Status badge — bottom RIGHT inside (HVAC had bottom-left) -->
+        <div style="position:absolute;bottom:18px;right:18px;background:rgba(254,252,250,.95);backdrop-filter:blur(12px);border:1px solid #E0D6CC;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px rgba(27,16,8,.1);">
+          <div style="width:8px;height:8px;border-radius:50%;background:#1A9972;box-shadow:0 0 0 3px rgba(26,153,114,.2);flex:none;"></div>
+          <div>
+            <div style="font-size:12px;color:#1B1008;font-weight:600;">Master Plumber Certified</div>
+            <div style="font-size:11px;color:#9A8878;margin-top:1px;">State licensed &amp; bonded</div>
+          </div>
+        </div>
+      </div>
+      <!-- Floating stat pill — bottom LEFT (HVAC had bottom-right) -->
+      <div style="position:absolute;bottom:0;left:0;background:linear-gradient(135deg,#0B6B8A,#0E9ABF);border-radius:16px;padding:20px 24px;box-shadow:0 12px 36px rgba(11,107,138,.3);">
+        <div style="font-size:36px;font-weight:700;color:#fff;font-family:'DM Serif Display',serif;line-height:1;">12+</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.85);font-weight:500;margin-top:4px;">Years in the<br/>industry</div>
+      </div>
+      <!-- Team strip — top LEFT (HVAC had top-right) -->
+      <div style="position:absolute;top:16px;left:0;background:#FEFCFA;border:1.5px solid #E0D6CC;border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:0 4px 16px rgba(27,16,8,.08);">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=60&q=80" alt="Plumber" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 6px rgba(27,16,8,.1);" />
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=60&q=80" alt="Plumber" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 6px rgba(27,16,8,.1);" />
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=60&q=80" alt="Plumber" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 6px rgba(27,16,8,.1);" />
+        <div style="font-size:10px;color:#9A8878;font-weight:600;text-align:center;margin-top:2px;">35+<br/>Plumbers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section id="process" style="padding:120px 56px;background:#F4F0EB;position:relative;overflow:hidden;">
+  <!-- Full-section background image with overlay -->
+  <img src="uploads/pasted-1782068289211-0.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;pointer-events:none;" />
+  <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,30,42,.78) 0%,rgba(11,107,138,.72) 50%,rgba(5,30,42,.82) 100%);pointer-events:none;"></div>
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:72px;position:relative;z-index:1;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:100px;padding:6px 18px;margin-bottom:18px;">
+        <span style="font-size:13px;font-weight:600;color:#fff;letter-spacing:.5px;text-transform:uppercase;">Our Process</span>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(34px,4vw,50px);line-height:1.1;letter-spacing:-1px;color:#fff;margin-bottom:14px;">Fixed in 4 Simple Steps</h2>
+      <p style="font-size:16px;color:rgba(255,255,255,.75);max-width:460px;margin:0 auto;line-height:1.7;">From your first call to a pressure-tested repair — fast, transparent, guaranteed.</p>
+    </div>
+
+    <!-- 4 cards + 3 arrow connectors in a flex row -->
+    <div style="display:flex;align-items:stretch;gap:0;position:relative;z-index:1;">
+
+      <!-- Step 1 -->
+      <div style="flex:1;background:#FEFCFA;border-radius:24px;padding:36px 28px 32px;position:relative;overflow:hidden;border:1.5px solid #E0D6CC;box-shadow:0 4px 24px rgba(27,16,8,.06);transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-6px);box-shadow:0 20px 48px rgba(11,107,138,.12);">
+        <!-- Accent bar top -->
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#0B6B8A,#4AAFCF);border-radius:4px 4px 0 0;"></div>
+        <!-- Watermark number -->
+        <div style="position:absolute;bottom:-12px;right:10px;font-size:110px;font-weight:800;color:rgba(11,107,138,.05);font-family:'DM Serif Display',serif;line-height:1;pointer-events:none;user-select:none;">01</div>
+        <!-- Icon -->
+        <div style="width:64px;height:64px;background:linear-gradient(135deg,#0B6B8A,#0E9ABF);border-radius:20px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 8px 24px rgba(11,107,138,.25);position:relative;z-index:1;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012.39 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <!-- Step pill -->
+        <div style="display:inline-flex;align-items:center;gap:5px;background:#E8F4F8;border:1px solid #B8DCE8;border-radius:100px;padding:3px 10px;margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:700;color:#0B6B8A;letter-spacing:.6px;">STEP 01</span>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#1B1008;margin-bottom:10px;letter-spacing:-.2px;">Call or Book Online</h3>
+        <p style="font-size:13px;line-height:1.7;color:#5A4E44;margin-bottom:24px;">Schedule in 60 seconds via our site or call us directly. We pick up every time, day or night.</p>
+        <div style="display:flex;align-items:center;gap:7px;padding-top:16px;border-top:1px solid #E8F4F8;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#0B6B8A" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#0B6B8A" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span style="font-size:12px;color:#9A8878;font-weight:500;">Takes ~2 minutes</span>
+        </div>
+      </div>
+
+      <!-- Arrow 1 -->
+      <div style="flex:none;width:52px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;">
+        <div style="width:36px;height:36px;background:#FEFCFA;border:1.5px solid #E0D6CC;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(27,16,8,.08);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0B6B8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div style="flex:1;background:#FEFCFA;border-radius:24px;padding:36px 28px 32px;position:relative;overflow:hidden;border:1.5px solid #E0D6CC;box-shadow:0 4px 24px rgba(27,16,8,.06);transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-6px);box-shadow:0 20px 48px rgba(192,117,53,.12);">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#C07535,#D4956A);border-radius:4px 4px 0 0;"></div>
+        <div style="position:absolute;bottom:-12px;right:10px;font-size:110px;font-weight:800;color:rgba(192,117,53,.05);font-family:'DM Serif Display',serif;line-height:1;pointer-events:none;user-select:none;">02</div>
+        <div style="width:64px;height:64px;background:linear-gradient(135deg,#C07535,#9A5820);border-radius:20px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 8px 24px rgba(192,117,53,.25);position:relative;z-index:1;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" stroke="#fff" stroke-width="1.5"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" stroke="#fff" stroke-width="1.5"/></svg>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:5px;background:#FBF0E4;border:1px solid #E8C99A;border-radius:100px;padding:3px 10px;margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:700;color:#C07535;letter-spacing:.6px;">STEP 02</span>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#1B1008;margin-bottom:10px;letter-spacing:-.2px;">We Arrive Fast</h3>
+        <p style="font-size:13px;line-height:1.7;color:#5A4E44;margin-bottom:24px;">Your plumber shows up on time, fully stocked, ready to fix most issues in a single visit.</p>
+        <div style="display:flex;align-items:center;gap:7px;padding-top:16px;border-top:1px solid #FBF0E4;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#C07535" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#C07535" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span style="font-size:12px;color:#9A8878;font-weight:500;">Within 45 minutes</span>
+        </div>
+      </div>
+
+      <!-- Arrow 2 -->
+      <div style="flex:none;width:52px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;">
+        <div style="width:36px;height:36px;background:#FEFCFA;border:1.5px solid #E0D6CC;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(27,16,8,.08);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#C07535" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div style="flex:1;background:#FEFCFA;border-radius:24px;padding:36px 28px 32px;position:relative;overflow:hidden;border:1.5px solid #E0D6CC;box-shadow:0 4px 24px rgba(27,16,8,.06);transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-6px);box-shadow:0 20px 48px rgba(124,92,234,.1);">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#7C5CEA,#A68EF5);border-radius:4px 4px 0 0;"></div>
+        <div style="position:absolute;bottom:-12px;right:10px;font-size:110px;font-weight:800;color:rgba(124,92,234,.05);font-family:'DM Serif Display',serif;line-height:1;pointer-events:none;user-select:none;">03</div>
+        <div style="width:64px;height:64px;background:linear-gradient(135deg,#7C5CEA,#5B3DD6);border-radius:20px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 8px 24px rgba(124,92,234,.25);position:relative;z-index:1;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#fff" stroke-width="1.5"/><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:5px;background:#F3F0FF;border:1px solid #D4C8F8;border-radius:100px;padding:3px 10px;margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:700;color:#7C5CEA;letter-spacing:.6px;">STEP 03</span>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#1B1008;margin-bottom:10px;letter-spacing:-.2px;">Diagnose &amp; Quote</h3>
+        <p style="font-size:13px;line-height:1.7;color:#5A4E44;margin-bottom:24px;">Full diagnosis with flat-rate pricing before any work begins. You approve — we proceed.</p>
+        <div style="display:flex;align-items:center;gap:7px;padding-top:16px;border-top:1px solid #F3F0FF;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#7C5CEA" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#7C5CEA" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span style="font-size:12px;color:#9A8878;font-weight:500;">Upfront, no surprises</span>
+        </div>
+      </div>
+
+      <!-- Arrow 3 -->
+      <div style="flex:none;width:52px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;">
+        <div style="width:36px;height:36px;background:#FEFCFA;border:1.5px solid #E0D6CC;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(27,16,8,.08);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#7C5CEA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div style="flex:1;background:#FEFCFA;border-radius:24px;padding:36px 28px 32px;position:relative;overflow:hidden;border:1.5px solid #E0D6CC;box-shadow:0 4px 24px rgba(27,16,8,.06);transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-6px);box-shadow:0 20px 48px rgba(26,153,114,.1);">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#1A9972,#2EC99A);border-radius:4px 4px 0 0;"></div>
+        <div style="position:absolute;bottom:-12px;right:10px;font-size:110px;font-weight:800;color:rgba(26,153,114,.05);font-family:'DM Serif Display',serif;line-height:1;pointer-events:none;user-select:none;">04</div>
+        <div style="width:64px;height:64px;background:linear-gradient(135deg,#1A9972,#0E7A59);border-radius:20px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 8px 24px rgba(26,153,114,.25);position:relative;z-index:1;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:5px;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:100px;padding:3px 10px;margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:700;color:#1A9972;letter-spacing:.6px;">STEP 04</span>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#1B1008;margin-bottom:10px;letter-spacing:-.2px;">Fixed &amp; Guaranteed</h3>
+        <p style="font-size:13px;line-height:1.7;color:#5A4E44;margin-bottom:24px;">Work is completed and pressure-tested before we leave. Backed by our full 1-year warranty.</p>
+        <div style="display:flex;align-items:center;gap:7px;padding-top:16px;border-top:1px solid #EDFAF4;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#1A9972" stroke-width="1.5" fill="#1A9972" fill-opacity=".2" stroke-linecap="round"/></svg>
+          <span style="font-size:12px;color:#9A8878;font-weight:500;">1-year workmanship warranty</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom completion banner -->
+    <div style="margin-top:48px;background:linear-gradient(135deg,#052E3E,#0B6B8A);border-radius:20px;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 8px 32px rgba(11,107,138,.2);">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="width:48px;height:48px;background:rgba(255,255,255,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:2px;">Average job completed in under 2 hours from booking</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.6);">Most common repairs resolved in a single visit — no repeat trips, no callbacks</div>
+        </div>
+      </div>
+      <a href="#contact" style="flex:none;background:#C07535;color:#fff;font-size:14px;font-weight:600;padding:13px 28px;border-radius:10px;text-decoration:none;white-space:nowrap;box-shadow:0 4px 16px rgba(192,117,53,.3);transition:background .2s,transform .15s;" style-hover="background:#9A5820;transform:translateY(-1px);">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testimonials" style="padding:100px 56px;background:#FEFCFA;border-top:1px solid #E0D6CC;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#E8F4F8;border:1px solid #B8DCE8;border-radius:100px;padding:6px 18px;margin-bottom:18px;">
+        <span style="font-size:13px;font-weight:600;color:#0B6B8A;letter-spacing:.5px;text-transform:uppercase;">Customer Reviews</span>
+      </div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(34px,4vw,50px);line-height:1.1;letter-spacing:-1px;color:#1B1008;margin-bottom:14px;">What Our Customers Say</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;">
+        <span style="color:#FBBF24;font-size:22px;">★★★★★</span>
+        <span style="font-size:16px;font-weight:600;color:#1B1008;">4.9</span>
+        <span style="font-size:14px;color:#9A8878;">from 400+ reviews on Google</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <!-- Review 1 -->
+      <div style="background:#F4F0EB;border:1.5px solid #E0D6CC;border-radius:20px;padding:28px;transition:border-color .25s,transform .25s;" style-hover="border-color:#0B6B8A;transform:translateY(-4px);">
+        <div style="display:flex;gap:3px;margin-bottom:16px;"><span style="color:#FBBF24;font-size:16px;">★★★★★</span></div>
+        <p style="font-size:15px;line-height:1.7;color:#5A4E44;margin-bottom:22px;font-style:italic;">"FlowPro arrived within an hour on a Sunday morning for a burst pipe. The plumber was calm, professional, and had it fixed in 45 minutes. No mess left behind. Absolutely incredible service!"</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid #E0D6CC;">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=80&q=80" alt="Maria Santos" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 2px 8px rgba(27,16,8,.12);" />
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#1B1008;">Maria Santos</div>
+            <div style="font-size:12px;color:#9A8878;margin-top:2px;">Homeowner · Austin, TX</div>
+          </div>
+          <div style="margin-left:auto;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:8px;padding:4px 10px;">
+            <span style="font-size:11px;color:#1A9972;font-weight:600;">Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured review -->
+      <div style="background:linear-gradient(145deg,#063D52,#0B6B8A);border:none;border-radius:20px;padding:28px;box-shadow:0 16px 48px rgba(11,107,138,.25);transform:translateY(-8px);">
+        <div style="display:flex;gap:3px;margin-bottom:16px;"><span style="color:#FFE066;font-size:16px;">★★★★★</span></div>
+        <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.9);margin-bottom:22px;font-style:italic;">"Had our entire home re-piped and a new water heater installed. FlowPro was on time, on budget, and the work is flawless. They even cleaned up better than they found it. Could not recommend more!"</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=80&q=80" alt="David Kim" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.2);" />
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">David Kim</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:2px;">Property Owner · Houston, TX</div>
+          </div>
+          <div style="margin-left:auto;background:rgba(255,255,255,.2);border-radius:8px;padding:4px 10px;">
+            <span style="font-size:11px;color:#fff;font-weight:600;">Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div style="background:#F4F0EB;border:1.5px solid #E0D6CC;border-radius:20px;padding:28px;transition:border-color .25s,transform .25s;" style-hover="border-color:#0B6B8A;transform:translateY(-4px);">
+        <div style="display:flex;gap:3px;margin-bottom:16px;"><span style="color:#FBBF24;font-size:16px;">★★★★★</span></div>
+        <p style="font-size:15px;line-height:1.7;color:#5A4E44;margin-bottom:22px;font-style:italic;">"Their annual plan has saved us twice from potential disasters. They find small issues before they become expensive ones. Very courteous team — always on time and spotlessly tidy."</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid #E0D6CC;">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=80&q=80" alt="Rachel Moore" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 2px 8px rgba(27,16,8,.12);" />
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#1B1008;">Rachel Moore</div>
+            <div style="font-size:12px;color:#9A8878;margin-top:2px;">Homeowner · Dallas, TX</div>
+          </div>
+          <div style="margin-left:auto;background:#EDFAF4;border:1px solid #B8E9D2;border-radius:8px;padding:4px 10px;">
+            <span style="font-size:11px;color:#1A9972;font-weight:600;">Verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA + FORM ═══  Form LEFT · Info RIGHT (opposite of HVAC) -->
+<section id="contact" style="padding:100px 56px;background:#F4F0EB;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="background:linear-gradient(135deg,#052E3E 0%,#0B6B8A 55%,#0E8AAD 100%);border-radius:28px;padding:72px 80px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;box-shadow:0 24px 64px rgba(11,107,138,.25);">
+      <div style="position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.07),transparent);pointer-events:none;border-radius:50%;"></div>
+      <div style="position:absolute;top:-60px;right:60px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.04),transparent);pointer-events:none;border-radius:50%;"></div>
+
+      <!-- Form LEFT (HVAC had form on right) -->
+      <div style="background:#FEFCFA;border-radius:20px;padding:36px;box-shadow:0 8px 32px rgba(27,16,8,.12);">
+        <h3 style="font-size:20px;font-weight:700;color:#1B1008;margin-bottom:22px;letter-spacing:-.3px;">Request a Free Quote</h3>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label style="display:block;font-size:12px;font-weight:600;color:#9A8878;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">First Name</label>
+              <input type="text" placeholder="John" style="width:100%;background:#F4F0EB;border:1.5px solid #E0D6CC;border-radius:10px;padding:12px 14px;color:#1B1008;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0B6B8A';this.style.background='#fff';" onblur="this.style.borderColor='#E0D6CC';this.style.background='#F4F0EB';" />
+            </div>
+            <div>
+              <label style="display:block;font-size:12px;font-weight:600;color:#9A8878;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Last Name</label>
+              <input type="text" placeholder="Doe" style="width:100%;background:#F4F0EB;border:1.5px solid #E0D6CC;border-radius:10px;padding:12px 14px;color:#1B1008;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0B6B8A';this.style.background='#fff';" onblur="this.style.borderColor='#E0D6CC';this.style.background='#F4F0EB';" />
+            </div>
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#9A8878;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Phone Number</label>
+            <input type="tel" placeholder="+1 (555) 000-0000" style="width:100%;background:#F4F0EB;border:1.5px solid #E0D6CC;border-radius:10px;padding:12px 14px;color:#1B1008;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0B6B8A';this.style.background='#fff';" onblur="this.style.borderColor='#E0D6CC';this.style.background='#F4F0EB';" />
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#9A8878;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Service Needed</label>
+            <select style="width:100%;background:#F4F0EB;border:1.5px solid #E0D6CC;border-radius:10px;padding:12px 14px;color:#5A4E44;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;transition:border-color .2s;" onfocus="this.style.borderColor='#0B6B8A';this.style.background='#fff';" onblur="this.style.borderColor='#E0D6CC';this.style.background='#F4F0EB';">
+              <option value="">Select a service...</option>
+              <option value="pipe">Pipe Repair &amp; Installation</option>
+              <option value="emergency">Emergency Plumbing</option>
+              <option value="heater">Water Heater Services</option>
+              <option value="drain">Drain &amp; Sewer Cleaning</option>
+              <option value="leak">Leak Detection</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;color:#9A8878;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Describe the Issue</label>
+            <textarea placeholder="Tell us what's going on..." rows="3" style="width:100%;background:#F4F0EB;border:1.5px solid #E0D6CC;border-radius:10px;padding:12px 14px;color:#1B1008;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;resize:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0B6B8A';this.style.background='#fff';" onblur="this.style.borderColor='#E0D6CC';this.style.background='#F4F0EB';"></textarea>
+          </div>
+          <button onclick="this.textContent='✓ Sent! We\'ll call you shortly';this.style.background='#1A9972';this.style.boxShadow='0 8px 24px rgba(26,153,114,.28)';setTimeout(()=>{this.textContent='Submit Request';this.style.background='#0B6B8A';this.style.boxShadow='0 8px 24px rgba(11,107,138,.28)';},3000);" style="width:100%;background:#0B6B8A;color:#fff;font-size:15px;font-weight:600;padding:15px;border-radius:10px;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(11,107,138,.28);font-family:'DM Sans',sans-serif;transition:background .2s,transform .15s;" style-hover="background:#084F68;transform:translateY(-1px);">Submit Request</button>
+        </div>
+      </div>
+
+      <!-- Info RIGHT (HVAC had info on left) -->
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);border-radius:100px;padding:6px 18px;margin-bottom:24px;">
+          <span style="font-size:13px;font-weight:600;color:#fff;letter-spacing:.5px;text-transform:uppercase;">Free Estimate</span>
+        </div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(30px,3.5vw,46px);line-height:1.1;letter-spacing:-.8px;color:#fff;margin-bottom:18px;">Ready to Fix That<br/>Plumbing Problem?</h2>
+        <p style="font-size:16px;line-height:1.75;color:rgba(255,255,255,.8);margin-bottom:32px;">Get a free no-obligation estimate. We respond within 30 minutes during business hours — and always answer for emergencies.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012.39 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z" stroke="#fff" stroke-width="1.5"/></svg>
+            </div>
+            <span style="color:rgba(255,255,255,.9);font-size:15px;font-weight:500;">1-800-555-5678</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#fff" stroke-width="1.5"/><polyline points="22,6 12,13 2,6" stroke="#fff" stroke-width="1.5"/></svg>
+            </div>
+            <span style="color:rgba(255,255,255,.9);font-size:15px;font-weight:500;">hello@flowpro-plumbing.com</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <span style="color:rgba(255,255,255,.9);font-size:15px;font-weight:500;">Mon–Sun · 7am–10pm · 24/7 Emergency</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="#fff" stroke-width="1.5"/></svg>
+            </div>
+            <span style="color:rgba(255,255,255,.9);font-size:15px;font-weight:500;">456 Pipe Lane, Austin, TX 78702</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer style="background:#1B1008;padding:72px 56px 36px;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <div style="width:36px;height:36px;background:linear-gradient(135deg,#0B6B8A,#0E9ABF);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.5 2 6 5.8 6 9.2c0 2.6 1.4 4.9 3.4 6.5L12 22l2.6-6.3C16.6 14.1 18 11.8 18 9.2 18 5.8 15.5 2 12 2z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" fill="#fff"/></svg>
+          </div>
+          <span style="font-size:17px;font-weight:700;color:#fff;">FlowPro<span style="color:#0B6B8A;">Plumbing</span></span>
+        </div>
+        <p style="font-size:14px;line-height:1.7;color:rgba(255,255,255,.4);max-width:270px;margin-bottom:22px;">Your trusted local plumbing partner for over 12 years. Reliable service is not just our job — it's our promise.</p>
+        <div style="display:flex;gap:10px;">
+          <a href="#" style="width:34px;height:34px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);text-decoration:none;font-size:12px;transition:background .2s;" style-hover="background:rgba(11,107,138,.4);">f</a>
+          <a href="#" style="width:34px;height:34px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);text-decoration:none;font-size:12px;transition:background .2s;" style-hover="background:rgba(11,107,138,.4);">in</a>
+          <a href="#" style="width:34px;height:34px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);text-decoration:none;font-size:12px;transition:background .2s;" style-hover="background:rgba(11,107,138,.4);">ig</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:18px;">Services</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Pipe Repair</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Emergency Plumbing</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Water Heaters</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Drain Cleaning</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Leak Detection</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:18px;">Company</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">About Us</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Our Team</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Reviews</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Blog</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s;" style-hover="color:rgba(255,255,255,.9);">Careers</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:18px;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><path d="M22 16.9v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 11.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012.39 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z" stroke="#0B6B8A" stroke-width="1.5"/></svg>
+            <span style="color:rgba(255,255,255,.4);font-size:14px;">1-800-555-5678</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#0B6B8A" stroke-width="1.5"/><polyline points="22,6 12,13 2,6" stroke="#0B6B8A" stroke-width="1.5"/></svg>
+            <span style="color:rgba(255,255,255,.4);font-size:14px;">hello@flowpro-plumbing.com</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#0B6B8A" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="#0B6B8A" stroke-width="1.5"/></svg>
+            <span style="color:rgba(255,255,255,.4);font-size:14px;line-height:1.5;">456 Pipe Lane<br/>Austin, TX 78702</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.07);padding-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+      <span style="font-size:13px;color:rgba(255,255,255,.25);">© 2025 FlowPro Plumbing. All rights reserved.</span>
+      <div style="display:flex;gap:22px;">
+        <a href="#" style="color:rgba(255,255,255,.25);font-size:13px;text-decoration:none;" style-hover="color:rgba(255,255,255,.6);">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,.25);font-size:13px;text-decoration:none;" style-hover="color:rgba(255,255,255,.6);">Terms of Service</a>
+        <a href="#" style="color:rgba(255,255,255,.25);font-size:13px;text-decoration:none;" style-hover="color:rgba(255,255,255,.6);">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>
